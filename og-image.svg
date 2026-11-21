@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="t">
+  <title id="t">Brekka. We take enterprise AI from pilot to production.</title>
+  <rect width="1200" height="630" fill="#F5F3EE"/>
+
+  <!-- Slope lines -->
+  <g fill="none" stroke="#D9D5CB" stroke-width="1.5" transform="translate(520 70)">
+    <path d="M0 540 C 180 530, 330 470, 450 350 S 640 120, 720 90"/>
+    <path d="M0 560 C 200 548, 360 500, 480 390 S 650 190, 720 160"/>
+    <path d="M60 560 C 240 556, 400 520, 510 430 S 660 260, 720 230" opacity=".75"/>
+    <path d="M180 560 C 320 558, 440 536, 540 468 S 670 330, 720 300" opacity=".55"/>
+    <path d="M300 560 C 400 558, 490 546, 570 504 S 680 400, 720 372" opacity=".4"/>
+  </g>
+  <circle cx="1132" cy="176" r="9" fill="#A3481F"/>
+
+  <!-- Mark and wordmark -->
+  <g transform="translate(80 76) scale(1.75)">
+    <rect width="32" height="32" rx="7" fill="#14171A"/>
+    <path fill="#F5F3EE" fill-rule="evenodd" d="M9 7H17A4.75 4.75 0 0 1 20 15.4A5.25 5.25 0 0 1 18 25H9ZM13 10.6V14H16.6A1.7 1.7 0 0 0 16.6 10.6ZM13 17.6V21.4H17.4A1.9 1.9 0 0 0 17.4 17.6Z"/>
+  </g>
+  <text x="154" y="118" font-family="-apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="-1.2" fill="#14171A">Brekka</text>
+
+  <!-- Headline -->
+  <g font-family="-apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="78" font-weight="600" letter-spacing="-2.6" fill="#14171A">
+    <text x="80" y="330">We take enterprise AI</text>
+    <text x="80" y="420">from pilot to production.</text>
+  </g>
+
+  <rect x="80" y="492" width="64" height="2" fill="#14171A"/>
+  <text x="80" y="548" font-family="-apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="28" fill="#454B51">Senior engineers, embedded with your teams.</text>
+</svg>
