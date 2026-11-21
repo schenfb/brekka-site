@@ -1,30 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="t">
   <title id="t">Brekka. We take enterprise AI from pilot to production.</title>
-  <rect width="1200" height="630" fill="#F5F3EE"/>
+  <rect width="1200" height="630" fill="#14171A"/>
 
-  <!-- Slope lines -->
-  <g fill="none" stroke="#D9D5CB" stroke-width="1.5" transform="translate(520 70)">
-    <path d="M0 540 C 180 530, 330 470, 450 350 S 640 120, 720 90"/>
-    <path d="M0 560 C 200 548, 360 500, 480 390 S 650 190, 720 160"/>
-    <path d="M60 560 C 240 556, 400 520, 510 430 S 660 260, 720 230" opacity=".75"/>
-    <path d="M180 560 C 320 558, 440 536, 540 468 S 670 330, 720 300" opacity=".55"/>
-    <path d="M300 560 C 400 558, 490 546, 570 504 S 680 400, 720 372" opacity=".4"/>
-  </g>
-  <circle cx="1132" cy="176" r="9" fill="#A3481F"/>
+  <!-- Diagram grammar: outlined node = stage, copper filled node = production
+       milestone, dashed line = exploratory leg, solid line = committed leg. -->
+  <path d="M770 548 C 795 536, 818 520, 840 500 C 872 472, 902 442, 930 410" fill="none" stroke="#E39468" stroke-width="5" stroke-linecap="round" stroke-dasharray="3 15"/>
+  <path d="M930 410 C 964 372, 994 332, 1020 290 C 1048 246, 1074 202, 1100 160" fill="none" stroke="#E39468" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="840" cy="500" r="15" fill="#14171A" stroke="#EFEDE7" stroke-width="4"/>
+  <circle cx="930" cy="410" r="15" fill="#14171A" stroke="#EFEDE7" stroke-width="4"/>
+  <circle cx="1020" cy="290" r="30" fill="none" stroke="#E39468" stroke-width="2" opacity=".4"/>
+  <circle cx="1020" cy="290" r="18" fill="#E39468"/>
+  <circle cx="1100" cy="160" r="15" fill="#14171A" stroke="#EFEDE7" stroke-width="4"/>
 
   <!-- Mark and wordmark -->
   <g transform="translate(80 76) scale(1.75)">
-    <rect width="32" height="32" rx="7" fill="#14171A"/>
-    <path fill="#F5F3EE" fill-rule="evenodd" d="M9 7H17A4.75 4.75 0 0 1 20 15.4A5.25 5.25 0 0 1 18 25H9ZM13 10.6V14H16.6A1.7 1.7 0 0 0 16.6 10.6ZM13 17.6V21.4H17.4A1.9 1.9 0 0 0 17.4 17.6Z"/>
+    <rect width="32" height="32" rx="7" fill="#EFEDE7"/>
+    <path fill="#14171A" fill-rule="evenodd" d="M9 7H17A4.75 4.75 0 0 1 20 15.4A5.25 5.25 0 0 1 18 25H9ZM13 10.6V14H16.6A1.7 1.7 0 0 0 16.6 10.6ZM13 17.6V21.4H17.4A1.9 1.9 0 0 0 17.4 17.6Z"/>
   </g>
-  <text x="154" y="118" font-family="-apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="42" font-weight="700" letter-spacing="-1.2" fill="#14171A">Brekka</text>
+  <text x="154" y="118" font-family="-apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, 'Liberation Sans', 'DejaVu Sans', sans-serif" font-size="42" font-weight="700" letter-spacing="-1.2" fill="#EFEDE7">Brekka</text>
 
   <!-- Headline -->
-  <g font-family="-apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="78" font-weight="600" letter-spacing="-2.6" fill="#14171A">
-    <text x="80" y="330">We take enterprise AI</text>
-    <text x="80" y="420">from pilot to production.</text>
+  <g font-family="'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, 'Noto Serif', 'Liberation Serif', 'DejaVu Serif', serif" font-size="56" font-weight="400" letter-spacing="-1" fill="#EFEDE7">
+    <text x="80" y="322">We take enterprise AI</text>
+    <text x="80" y="392">from pilot to production.</text>
   </g>
 
-  <rect x="80" y="492" width="64" height="2" fill="#14171A"/>
-  <text x="80" y="548" font-family="-apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="28" fill="#454B51">Senior engineers, embedded with your teams.</text>
+  <rect x="80" y="470" width="64" height="2" fill="#E39468"/>
+  <text x="80" y="528" font-family="-apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, 'Liberation Sans', 'DejaVu Sans', sans-serif" font-size="26" fill="#B4B9BE">Senior engineers, embedded with your teams.</text>
 </svg>

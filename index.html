@@ -36,7 +36,7 @@
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a class="wordmark" href="#top" aria-label="Brekka, back to top">
-        <svg class="wordmark-mark" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" focusable="false">
+        <svg class="wordmark-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
           <rect width="32" height="32" rx="7" fill="currentColor"/>
           <path class="wordmark-b" fill-rule="evenodd" d="M9 7H17A4.75 4.75 0 0 1 20 15.4A5.25 5.25 0 0 1 18 25H9ZM13 10.6V14H16.6A1.7 1.7 0 0 0 16.6 10.6ZM13 17.6V21.4H17.4A1.9 1.9 0 0 0 17.4 17.6Z"/>
         </svg>
@@ -68,32 +68,73 @@
 
     <!-- Hero -->
     <section class="hero" aria-labelledby="hero-title">
-      <svg class="hero-lines" viewBox="0 0 720 560" preserveAspectRatio="xMaxYMax slice" aria-hidden="true" focusable="false">
-        <g fill="none" stroke="currentColor" stroke-width="1">
-          <path d="M0 540 C 180 530, 330 470, 450 350 S 640 120, 720 90"/>
-          <path d="M0 560 C 200 548, 360 500, 480 390 S 650 190, 720 160" opacity=".8"/>
-          <path d="M60 560 C 240 556, 400 520, 510 430 S 660 260, 720 230" opacity=".6"/>
-          <path d="M180 560 C 320 558, 440 536, 540 468 S 670 330, 720 300" opacity=".45"/>
-          <path d="M300 560 C 400 558, 490 546, 570 504 S 680 400, 720 372" opacity=".3"/>
-          <path d="M420 560 C 490 558, 550 552, 610 530 S 690 468, 720 446" opacity=".2"/>
-        </g>
-        <g class="hero-nodes">
-          <circle cx="150" cy="527" r="4"/>
-          <circle cx="352" cy="435" r="4"/>
-          <circle cx="508" cy="282" r="4"/>
-          <circle cx="662" cy="118" r="6"/>
-        </g>
-      </svg>
-
-      <div class="container hero-inner">
-        <p class="eyebrow">Enterprise AI delivery</p>
-        <h1 id="hero-title">We take enterprise AI from pilot to&nbsp;production.</h1>
-        <p class="hero-sub">Brekka embeds senior engineers inside your teams to build reliable AI systems, put them to work in everyday operations, and hand them over so your people can run them on their own.</p>
-        <div class="hero-actions">
-          <a class="button" href="#contact">Talk to us</a>
-          <a class="text-link" href="#method">See how we work <span aria-hidden="true">→</span></a>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Enterprise AI delivery</p>
+          <h1 id="hero-title">We take enterprise AI <span class="h1-break">from pilot to production.</span></h1>
+          <p class="hero-sub">Senior engineers embedded in your teams build reliable AI systems, put them to work in everyday operations, and hand them over for your people to run.</p>
+          <div class="hero-actions">
+            <a class="button" href="#contact">Talk to us <span class="button-arrow" aria-hidden="true">→</span></a>
+            <a class="text-link" href="#method">See how we work</a>
+          </div>
+          <p class="hero-foot">Led by senior engineers who have built and run production systems at Meta and Stripe.</p>
         </div>
-        <p class="hero-foot">Led by senior engineers who have built and run production systems at Meta and Stripe.</p>
+
+        <!-- Two variants of one diagram. CSS shows exactly one (display: none on the
+             other), so only one is exposed to assistive technology.
+             Grammar: outlined node = stage, copper filled node = production milestone,
+             dashed line = exploratory leg, solid line = committed leg. -->
+        <figure class="hero-figure">
+          <svg class="plate plate-desktop" viewBox="0 0 480 520" role="img" aria-labelledby="plate-d-title plate-d-desc">
+            <title id="plate-d-title">From pilot to production</title>
+            <desc id="plate-d-desc">One path climbs through four stages: diagnose, pilot, production and handover. The line is dashed up to the pilot and solid from there on. Production is the filled milestone.</desc>
+            <rect width="480" height="520" rx="24" fill="#14171A"/>
+
+            <text class="plate-text plate-caption" x="32" y="52">PILOT → PRODUCTION</text>
+
+            <!-- Exploratory leg (dashed), then committed leg (solid) -->
+            <path class="plate-flow" d="M40 468 C 62 462, 84 452, 104 440 C 142 418, 180 390, 212 356" fill="none" stroke="#E39468" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9"/>
+            <path d="M212 356 C 252 314, 288 270, 316 226 C 346 180, 378 138, 408 104" fill="none" stroke="#E39468" stroke-width="3" stroke-linecap="round"/>
+
+            <!-- Stage nodes -->
+            <circle cx="104" cy="440" r="10" fill="#14171A" stroke="#EFEDE7" stroke-width="2.5"/>
+            <circle cx="212" cy="356" r="10" fill="#14171A" stroke="#EFEDE7" stroke-width="2.5"/>
+            <circle class="plate-pulse" cx="316" cy="226" r="20" fill="none" stroke="#E39468" stroke-width="1.5" opacity=".4"/>
+            <circle cx="316" cy="226" r="12" fill="#E39468"/>
+            <circle cx="408" cy="104" r="10" fill="#14171A" stroke="#EFEDE7" stroke-width="2.5"/>
+
+            <!-- Stage labels -->
+            <text class="plate-text" x="124" y="462"><tspan class="plate-num">01</tspan> DIAGNOSE</text>
+            <text class="plate-text" x="234" y="376"><tspan class="plate-num">02</tspan> PILOT</text>
+            <text class="plate-text" x="292" y="222" text-anchor="end"><tspan class="plate-num">03</tspan> PRODUCTION</text>
+            <text class="plate-text" x="384" y="100" text-anchor="end"><tspan class="plate-num">04</tspan> HANDOVER</text>
+
+            <!-- Legend -->
+            <line x1="330" y1="466" x2="354" y2="466" stroke="#E39468" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="2 7"/>
+            <text class="plate-text plate-legend" x="366" y="470">EXPLORATORY</text>
+            <line x1="330" y1="488" x2="354" y2="488" stroke="#E39468" stroke-width="2.5" stroke-linecap="round"/>
+            <text class="plate-text plate-legend" x="366" y="492">COMMITTED</text>
+          </svg>
+
+          <svg class="plate plate-mobile" viewBox="0 0 335 290" role="img" aria-labelledby="plate-m-title plate-m-desc">
+            <title id="plate-m-title">From pilot to production</title>
+            <desc id="plate-m-desc">One path climbs through four stages: diagnose, pilot, production and handover. The line is dashed up to the pilot and solid from there on. Production is the filled milestone.</desc>
+            <rect width="335" height="290" rx="20" fill="#14171A"/>
+
+            <path class="plate-flow" d="M12 252 C 22 247, 31 242, 40 236 C 70 218, 98 204, 124 184" fill="none" stroke="#E39468" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9"/>
+            <path d="M124 184 C 154 162, 182 140, 208 116 C 238 94, 266 74, 292 52" fill="none" stroke="#E39468" stroke-width="3" stroke-linecap="round"/>
+
+            <circle cx="40" cy="236" r="9" fill="#14171A" stroke="#EFEDE7" stroke-width="2.5"/>
+            <circle cx="124" cy="184" r="9" fill="#14171A" stroke="#EFEDE7" stroke-width="2.5"/>
+            <circle cx="208" cy="116" r="11" fill="#E39468"/>
+            <circle cx="292" cy="52" r="9" fill="#14171A" stroke="#EFEDE7" stroke-width="2.5"/>
+
+            <text class="plate-text plate-text-m" x="58" y="262"><tspan class="plate-num">01</tspan> DIAGNOSE</text>
+            <text class="plate-text plate-text-m" x="142" y="210"><tspan class="plate-num">02</tspan> PILOT</text>
+            <text class="plate-text plate-text-m" x="188" y="110" text-anchor="end"><tspan class="plate-num">03</tspan> PRODUCTION</text>
+            <text class="plate-text plate-text-m" x="272" y="46" text-anchor="end"><tspan class="plate-num">04</tspan> HANDOVER</text>
+          </svg>
+        </figure>
       </div>
     </section>
 
@@ -103,74 +144,122 @@
         <header class="section-head">
           <p class="eyebrow"><span class="eyebrow-num">01</span> What we do</p>
           <h2 id="services-title">Four practices, one goal: systems your business relies on.</h2>
-          <p class="section-lede">We help companies turn AI into measurable improvements in everyday work. That means building the system, the foundations underneath it, and the team capability around it.</p>
+          <p class="section-lede">We turn AI into measurable improvements in everyday work: the system, the foundations underneath it, and the team capability around it.</p>
         </header>
 
-        <div class="services">
-          <article class="service">
-            <p class="service-tag">A</p>
+        <div class="cards">
+          <article class="card">
+            <div class="card-top">
+              <span class="card-icon">
+                <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true" focusable="false">
+                  <path d="M10 9h28a5 5 0 0 1 5 5v15a5 5 0 0 1-5 5H24l-9 7v-7h-5a5 5 0 0 1-5-5V14a5 5 0 0 1 5-5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  <circle cx="15.5" cy="21.5" r="2.25" fill="currentColor"/>
+                  <circle cx="24" cy="21.5" r="2.25" fill="currentColor"/>
+                  <circle cx="32.5" cy="21.5" r="2.25" fill="currentColor"/>
+                </svg>
+              </span>
+              <span class="card-tag" aria-hidden="true">A</span>
+            </div>
             <h3>AI agents</h3>
-            <p>Agents that take on customer conversations and internal requests. We build them with evaluation, guardrails and clear escalation paths, so their work can be measured, reviewed and audited.</p>
-            <ul>
+            <p>Agents for customer conversations and internal requests, built with evaluation, guardrails and clear escalation paths so their work can be measured, reviewed and audited.</p>
+            <ul class="chips" aria-label="Typical areas">
               <li>Customer service and support</li>
-              <li>Operations and back-office queues</li>
-              <li>Internal knowledge and employee requests</li>
+              <li>Back-office queues</li>
             </ul>
           </article>
 
-          <article class="service">
-            <p class="service-tag">B</p>
+          <article class="card">
+            <div class="card-top">
+              <span class="card-icon">
+                <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true" focusable="false">
+                  <rect x="4" y="18" width="12" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <path d="M16 24h7m0 0V12h5m-5 12v12h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="30" y="6" width="12" height="12" rx="3" fill="currentColor"/>
+                  <rect x="30" y="30" width="12" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </span>
+              <span class="card-tag" aria-hidden="true">B</span>
+            </div>
             <h3>Workflow automation</h3>
-            <p>We map how work actually moves through your organisation. Then we automate the steps that are suitable for it, and route exceptions and judgement calls to your team.</p>
-            <ul>
+            <p>We map how work actually moves, automate the steps that are suitable for it, and route exceptions and judgement calls to your team.</p>
+            <ul class="chips" aria-label="Typical areas">
               <li>Document intake and processing</li>
-              <li>Review, approval and reconciliation flows</li>
-              <li>Reporting and routine analysis</li>
+              <li>Approvals and reconciliation</li>
             </ul>
           </article>
 
-          <article class="service">
-            <p class="service-tag">C</p>
+          <article class="card">
+            <div class="card-top">
+              <span class="card-icon">
+                <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true" focusable="false">
+                  <path d="M24 12.2A13 13 0 0 1 24 35.8A13 13 0 0 1 24 12.2Z" fill="currentColor"/>
+                  <circle cx="18" cy="24" r="13" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="30" cy="24" r="13" fill="none" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </span>
+              <span class="card-tag" aria-hidden="true">C</span>
+            </div>
             <h3>Embedded engineering</h3>
-            <p>Our engineers work inside your teams, your systems and your constraints. They write production code rather than recommendations, agree delivery goals with your team, and report progress against them.</p>
-            <ul>
-              <li>Working with your engineers and operators</li>
-              <li>Building in your environment and stack</li>
-              <li>Delivery goals agreed and tracked in the open</li>
+            <p>Our engineers write production code inside your teams, systems and constraints, agreeing delivery goals with your team and reporting progress against them.</p>
+            <ul class="chips" aria-label="How it works">
+              <li>With your engineers and operators</li>
+              <li>In your environment and stack</li>
             </ul>
           </article>
 
-          <article class="service">
-            <p class="service-tag">D</p>
+          <article class="card">
+            <div class="card-top">
+              <span class="card-icon">
+                <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true" focusable="false">
+                  <path d="M24 6 42 15 24 24 6 15Z" fill="currentColor"/>
+                  <path d="M24 6 42 15 24 24 6 15Z M6 24l18 9 18-9 M6 33l18 9 18-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="card-tag" aria-hidden="true">D</span>
+            </div>
             <h3>Data &amp; AI platform foundations</h3>
-            <p>The groundwork that makes everything else dependable: clean data paths, retrieval, evaluation, monitoring and access control. We assess vendor dependencies and design for portability where it is practical.</p>
-            <ul>
+            <p>Clean data paths, retrieval, evaluation, monitoring and access control, with vendor dependencies assessed and portability designed in where it is practical.</p>
+            <ul class="chips" aria-label="Typical areas">
               <li>Data pipelines and retrieval</li>
               <li>Evaluation and observability</li>
-              <li>Security, governance and model infrastructure</li>
             </ul>
           </article>
         </div>
 
         <div class="cases">
           <div class="cases-head">
-            <h3>Where engagements tend to start</h3>
-            <p>Problems with high volume, clear rules and a number that already matters to the business.</p>
+            <h3>Examples of work to assess</h3>
+            <p>High volume, clear rules, and a number that already matters to the business.</p>
           </div>
-          <dl class="cases-list">
-            <div class="case">
-              <dt>Support queues dominated by repeatable requests</dt>
-              <dd><span class="label">Measured by</span> Time to resolution and the share of requests resolved without escalation.</dd>
-            </div>
-            <div class="case">
-              <dt>Document-heavy operations such as onboarding, claims or invoicing</dt>
-              <dd><span class="label">Measured by</span> Handling time per case and the rate of errors caught downstream.</dd>
-            </div>
-            <div class="case">
-              <dt>Expert teams interrupted by questions the organisation has already answered</dt>
-              <dd><span class="label">Measured by</span> Time to a correct answer and the load taken off those teams.</dd>
-            </div>
-          </dl>
+          <ul class="cases-list">
+            <li class="case">
+              <p class="case-kicker">Possible starting point</p>
+              <h4>Support queues dominated by repeatable requests</h4>
+              <p class="label">Measured by</p>
+              <ul class="chips">
+                <li>Time to resolution</li>
+                <li>Share resolved without escalation</li>
+              </ul>
+            </li>
+            <li class="case">
+              <p class="case-kicker">Possible starting point</p>
+              <h4>Document-heavy operations such as onboarding, claims or invoicing</h4>
+              <p class="label">Measured by</p>
+              <ul class="chips">
+                <li>Handling time per case</li>
+                <li>Errors caught downstream</li>
+              </ul>
+            </li>
+            <li class="case">
+              <p class="case-kicker">Possible starting point</p>
+              <h4>Expert teams interrupted by questions the organisation has already answered</h4>
+              <p class="label">Measured by</p>
+              <ul class="chips">
+                <li>Time to a correct answer</li>
+                <li>Load taken off those teams</li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -181,89 +270,77 @@
         <header class="section-head">
           <p class="eyebrow"><span class="eyebrow-num">02</span> How we work</p>
           <h2 id="method-title">A pilot is a step, not a result.</h2>
-          <p class="section-lede">Many AI initiatives stall between a promising demo and a system people rely on. Our method is built around closing that gap, in four stages, with one senior team accountable throughout.</p>
+          <p class="section-lede">Many AI initiatives stall between a promising demo and a system people rely on. Four stages close that gap, with one senior team accountable throughout.</p>
         </header>
 
-        <ol class="steps">
-          <li class="step">
-            <span class="step-num" aria-hidden="true">01</span>
+        <!-- Same grammar as the hero diagram: outlined node = stage, copper filled
+             node = production milestone, dashed = exploratory, solid = committed. -->
+        <ol class="timeline">
+          <li class="tl-step">
+            <span class="tl-node" aria-hidden="true">01</span>
             <h3>Diagnose</h3>
-            <div class="step-body">
-              <p>We start with the work, not the model. We sit with the people doing the job, find where AI can make a measurable difference, and agree what will be measured before anything is built.</p>
-              <p class="step-out"><span class="label">You get</span> A ranked set of opportunities, a baseline, and a clear view of what is not worth doing.</p>
-            </div>
+            <p>We start with the work, not the model: where AI can make a measurable difference, and what will be measured before anything is built.</p>
+            <p class="tl-out"><span class="label">You get</span> A ranked set of opportunities, a baseline, and a clear view of what is not worth doing.</p>
           </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">02</span>
+          <li class="tl-step">
+            <span class="tl-node" aria-hidden="true">02</span>
             <h3>Build the pilot</h3>
-            <div class="step-body">
-              <p>A small senior team builds against your real data, with real users. We share progress through regular working demos, typically weekly, so decisions rest on evidence rather than status reports.</p>
-              <p class="step-out"><span class="label">You get</span> A working system in the hands of real users, measured against the baseline.</p>
-            </div>
+            <p>A small senior team builds against your real data, with real users. Regular working demos, typically weekly, keep decisions on evidence.</p>
+            <p class="tl-out"><span class="label">You get</span> A working system in the hands of real users, measured against the baseline.</p>
           </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">03</span>
+          <li class="tl-step tl-step-production">
+            <span class="tl-node" aria-hidden="true">03</span>
             <h3>Ship to production</h3>
-            <div class="step-body">
-              <p>Integration, security review, evaluation, monitoring and a staged rollout, against production criteria agreed with you. This is where most of the engineering lives. If the evidence does not support deployment, we stop or revise the work.</p>
-              <p class="step-out"><span class="label">You get</span> A system running in everyday work, with the controls your organisation requires.</p>
-            </div>
+            <p>Integration, security review, evaluation, monitoring and a staged rollout, against production criteria agreed with you. If the evidence does not support deployment, we stop or revise the work.</p>
+            <p class="tl-out"><span class="label">You get</span> A system running in everyday work, with the controls your organisation requires.</p>
           </li>
-          <li class="step">
-            <span class="step-num" aria-hidden="true">04</span>
+          <li class="tl-step">
+            <span class="tl-node" aria-hidden="true">04</span>
             <h3>Hand over and harden</h3>
-            <div class="step-body">
-              <p>Your engineers work in the code with us during the build, so handover is a continuation and not an event. We document, pair and train, then support the system while it proves itself under real load.</p>
-              <p class="step-out"><span class="label">You get</span> Runbooks, evaluation suites, and a team prepared to operate and extend the system.</p>
-            </div>
+            <p>Your engineers work in the code with us during the build, so handover is a continuation. We document, pair and train, then support the system under real load.</p>
+            <p class="tl-out"><span class="label">You get</span> Runbooks, evaluation suites, and a team prepared to operate and extend the system.</p>
           </li>
         </ol>
-
-        <ul class="cadence" aria-label="How every engagement is run">
-          <li>
-            <h3>One accountable team</h3>
-            <p>A senior team stays accountable from discovery through handover.</p>
-          </li>
-          <li>
-            <h3>Regular working demos</h3>
-            <p>Working software shown to the people who will use it, at a cadence agreed at kickoff.</p>
-          </li>
-          <li>
-            <h3>Agreed production criteria</h3>
-            <p>We define what production means with you before we build, and judge the work against it.</p>
-          </li>
-        </ul>
       </div>
     </section>
 
     <!-- Why Brekka -->
-    <section class="section" id="why" aria-labelledby="why-title">
-      <div class="container why">
-        <header class="section-head why-head">
+    <section class="section why" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <header class="section-head">
           <p class="eyebrow"><span class="eyebrow-num">03</span> Why Brekka</p>
           <h2 id="why-title">A senior engineering team, embedded with yours.</h2>
-          <p class="section-lede">We build and deploy alongside your team, document the system, and transfer the skills needed to operate it. The aim is a system that works and a team that owns it.</p>
-          <p class="why-note">Brekka is incorporated in Singapore. Our focus markets are the United States, Taiwan, Vietnam and Singapore.</p>
+          <p class="section-lede">We build and deploy alongside your team, document the system, and transfer the skills needed to operate it. The aim: a system that works and a team that owns it.</p>
         </header>
 
-        <div class="why-list">
+        <div class="why-grid">
           <article class="why-item">
+            <span class="why-num" aria-hidden="true">01</span>
             <h3>Senior engineers do the work</h3>
-            <p>Our engagements are staffed by senior engineers who have built and operated production systems. The engineers who scope the work with you are the engineers who build it.</p>
+            <p>Staffed by senior engineers who have built and operated production systems. The engineers who scope the work with you are the engineers who build it.</p>
           </article>
           <article class="why-item">
-            <h3>We build for production</h3>
-            <p>We treat a system as delivered when it is in daily use, with monitoring, evaluation and ownership in place. Those criteria are agreed with you at the start, and we report against them.</p>
-          </article>
-          <article class="why-item">
+            <span class="why-num" aria-hidden="true">02</span>
             <h3>We work alongside your team</h3>
-            <p>We build inside your environment, with your engineers and operators, under your security and compliance requirements. Decisions are made together and in the open.</p>
+            <p>Inside your environment, with your engineers and operators, under your security and compliance requirements. Decisions are made together and in the open.</p>
           </article>
           <article class="why-item">
+            <span class="why-num" aria-hidden="true">03</span>
             <h3>We leave your team stronger</h3>
-            <p>Handover is planned from the first week. Your people learn by building with us, and they keep the code, the tooling and the working knowledge to take on the next system.</p>
+            <p>Handover is planned from the first week. Your people learn by building with us, and keep the code, the tooling and the working knowledge to take on the next system.</p>
           </article>
         </div>
+
+        <dl class="facts">
+          <div class="fact">
+            <dt>Incorporated in</dt>
+            <dd>Singapore</dd>
+          </div>
+          <div class="fact">
+            <dt>Focus markets</dt>
+            <dd>United States, Taiwan, Vietnam, Singapore</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
@@ -274,28 +351,30 @@
           <p class="eyebrow"><span class="eyebrow-num">04</span> Start an engagement</p>
           <h2 id="contact-title">It starts with a short diagnostic conversation.</h2>
           <p class="section-lede">Tell us where work is slow, costly or error-prone. We will tell you plainly where AI can help, where it cannot yet, and what it would take to get a system into production.</p>
-          <a class="button button-light" href="mailto:hello@brekka.ai?subject=Diagnostic%20conversation">Talk to us</a>
-          <p class="contact-mail">Or write to <a href="mailto:hello@brekka.ai">hello@brekka.ai</a></p>
+          <div class="contact-actions">
+            <a class="button" href="mailto:hello@brekka.ai?subject=Diagnostic%20conversation">Talk to us <span class="button-arrow" aria-hidden="true">→</span></a>
+            <p class="contact-mail">Or write to <a href="mailto:hello@brekka.ai">hello@brekka.ai</a></p>
+          </div>
         </div>
 
         <ol class="contact-steps" aria-label="How engagements start">
           <li>
-            <span class="step-num" aria-hidden="true">01</span>
-            <div>
+            <span class="cs-node" aria-hidden="true">01</span>
+            <div class="cs-text">
               <h3>The conversation</h3>
               <p>Your leadership and our engineers talk through the business: which workflows are under pressure, what data and systems sit behind them, and which constraints apply.</p>
             </div>
           </li>
           <li>
-            <span class="step-num" aria-hidden="true">02</span>
-            <div>
+            <span class="cs-node" aria-hidden="true">02</span>
+            <div class="cs-text">
               <h3>The written view</h3>
               <p>Afterwards we send a short written summary: the opportunities we would pursue first, how each would be measured, and what we would leave alone. It comes before any commitment to work together.</p>
             </div>
           </li>
           <li>
-            <span class="step-num" aria-hidden="true">03</span>
-            <div>
+            <span class="cs-node" aria-hidden="true">03</span>
+            <div class="cs-text">
               <h3>The decision</h3>
               <p>You decide whether to go further. If you do, we scope a first engagement together and agree the team, the outcome, the production criteria and the terms in writing before work begins.</p>
             </div>
@@ -309,7 +388,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <a class="wordmark" href="#top" aria-label="Brekka, back to top">
-          <svg class="wordmark-mark" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true" focusable="false">
+          <svg class="wordmark-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
             <rect width="32" height="32" rx="7" fill="currentColor"/>
             <path class="wordmark-b" fill-rule="evenodd" d="M9 7H17A4.75 4.75 0 0 1 20 15.4A5.25 5.25 0 0 1 18 25H9ZM13 10.6V14H16.6A1.7 1.7 0 0 0 16.6 10.6ZM13 17.6V21.4H17.4A1.9 1.9 0 0 0 17.4 17.6Z"/>
           </svg>

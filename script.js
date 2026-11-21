@@ -13,6 +13,10 @@
   var nav = document.getElementById('site-nav');
   if (!header || !toggle || !nav) return;
 
+  // The two "Talk to us" controls: one shows on mobile, the other on desktop.
+  var mobileCta = header.querySelector('.header-cta');
+  var desktopCta = nav.querySelector('.nav-cta a');
+
   var mobile = window.matchMedia('(max-width: 760px)');
 
   function isOpen() {
@@ -46,16 +50,26 @@
     if (isOpen() && !header.contains(event.target)) setNav(false);
   });
 
-  // Crossing the breakpoint: reset the menu and never leave keyboard focus on a
-  // control that has just been hidden.
+  // Crossing the breakpoint: reset the menu, and if keyboard focus is on a
+  // control that has just been hidden, move it to the visible counterpart.
   function onBreakpoint() {
     var active = document.activeElement;
     setNav(false);
+    if (!active) return;
+
     if (mobile.matches) {
-      // Desktop to mobile: the links are now inside the closed menu.
-      if (active && nav.contains(active)) toggle.focus();
+      // Desktop to mobile: the nav links are now inside the closed menu, and
+      // the desktop "Talk to us" is hidden in favour of the header one.
+      if (active === desktopCta && mobileCta) {
+        mobileCta.focus();
+      } else if (nav.contains(active)) {
+        toggle.focus();
+      }
+    } else if (active === mobileCta) {
+      // Mobile to desktop: the header "Talk to us" is hidden.
+      if (desktopCta) desktopCta.focus();
     } else if (active === toggle) {
-      // Mobile to desktop: the menu button is now hidden.
+      // Mobile to desktop: the menu button is hidden.
       var first = nav.querySelector('a');
       if (first) first.focus();
     }
