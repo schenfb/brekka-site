@@ -679,44 +679,83 @@ h4 {
 }
 .fact dd { font-size: 0.98rem; color: var(--night-text); }
 
-/* ---------- Team: ruled rows of name, title and one short bio ---------- */
+/* ---------- Team: an editorial index of full-width entries ---------- */
 
-/* No nodes or copper here: in the diagram grammar a node is a stage and copper
-   is the production milestone, and a person is neither. The two columns reuse
-   the section-head grid, so titles align with the ledes of other sections.
-   Titles are not uppercased: they render exactly as written.
-   The name sits alone in the left column. The right column holds the title and,
-   beneath it, the bio. Rows align on the baseline, and the right column's
-   baseline is its first line, so name and title share a baseline and the bio
-   hangs below the title. Source order is name, title, bio, which is also the
-   stacked reading order on small screens. */
+/* One block per person. Header row: a medallion with the name (display serif)
+   and title (small mono caption) beside it, centred on it. Below, the bio
+   (prose at a 62ch measure) spans both columns and starts at the entry's left
+   edge, at every width. The medallion is the entry's only left-edge device;
+   there is no numeral.
+
+   The medallion is a softly rounded square, not a circle: circles on this page
+   are diagram nodes and step numbers. One box, .team-avatar, serves both the
+   photo <img> and the initials placeholder, with the same light ground and the
+   same rule-toned border, so a placeholder can be swapped for a photo without
+   touching anything else. Initials are dark letters on the light ground so they
+   do not outweigh a real portrait. No copper, no shadow.
+   Titles are not uppercased, so they render exactly as written. */
 .team-list { border-top: 1px solid var(--ink); }
-.team-row {
+.team-entry {
+  --avatar: clamp(72px, 7vw, 84px);
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: 4px clamp(32px, 6vw, 88px);
-  align-items: baseline;
-  padding: clamp(20px, 2.6vw, 30px) 0;
+  grid-template-columns: var(--avatar) minmax(0, 1fr);
+  grid-template-areas:
+    "avatar head"
+    "bio    bio";
+  column-gap: clamp(20px, 2.4vw, 32px);
+  row-gap: clamp(16px, 1.8vw, 22px);
+  align-items: center;
+  padding-block: clamp(32px, 4vw, 48px);
   border-bottom: 1px solid var(--rule-strong);
 }
-.team-name {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.3rem);
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.015em;
+.team-entry:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
-.team-role {
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: -0.008em;
+
+.team-avatar {
+  grid-area: avatar;
+  display: block;
+  width: var(--avatar);
+  height: var(--avatar);
+  border: 1px solid var(--rule-strong);
+  border-radius: 14px;
+  background: var(--surface);
+  object-fit: cover;
+}
+.team-avatar-initials {
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: calc(var(--avatar) * 0.36);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
   color: var(--ink);
 }
+
+.team-head { grid-area: head; }
+.team-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.4vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+.team-role {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
 .team-bio {
-  margin-top: 6px;
-  max-width: 52ch;
-  font-size: 0.95rem;
-  line-height: 1.55;
+  grid-area: bio;
+  max-width: 62ch;
+  font-size: 1.02rem;
+  line-height: 1.68;
   color: var(--ink-soft);
 }
 
@@ -901,9 +940,18 @@ h4 {
   .facts { gap: 14px; }
   .fact { flex-direction: column; }
 
-  /* Team: rows stack in source order: name, then title, then bio. */
-  .team-row { grid-template-columns: minmax(0, 1fr); padding: 20px 0; }
-  .team-bio { max-width: none; }
+  /* Team: a 60px medallion beside the name and title; the bio runs full width
+     underneath, as on desktop. The name is set a little smaller so it stays on
+     one line beside the medallion, including with enlarged system text. */
+  .team-entry {
+    --avatar: 60px;
+    column-gap: 16px;
+    row-gap: 18px;
+    padding-block: 28px;
+  }
+  .team-avatar { border-radius: 12px; }
+  .team-name { font-size: 1.6rem; }
+  .team-bio { max-width: none; font-size: 1rem; }
 
   /* Contact steps: 34px numbers, 46px gutter. */
   .contact-actions .button { width: 100%; }

@@ -345,7 +345,11 @@
       </div>
     </section>
 
-    <!-- Team: name, title and one short bio per person, as ruled rows. No portraits. -->
+    <!-- Team: one full-width entry per person: photo medallion, name, title,
+         short bio. Every medallion is an <img class="team-avatar"> on the shared
+         .team-avatar box. The medallion is decorative: the person's name is the
+         heading beside it, so alt is empty. (An initials fallback,
+         .team-avatar-initials, remains in the stylesheet unused.) -->
     <section class="section section-tint team" id="team" aria-labelledby="team-title">
       <div class="container">
         <header class="section-head">
@@ -354,26 +358,29 @@
         </header>
 
         <ul class="team-list">
-          <li class="team-row">
-            <h3 class="team-name">Brian Weng</h3>
-            <div class="team-detail">
+          <li class="team-entry">
+            <img class="team-avatar" src="assets/team/brian.jpg" alt="" width="678" height="678">
+            <div class="team-head">
+              <h3 class="team-name">Brian Weng</h3>
               <p class="team-role">CEO</p>
-              <p class="team-bio">Engineering leader at Meta. Head of APAC Engineering at Stripe. Former CTO of BIPO, where he led product and engineering across Asia. PhD from Caltech.</p>
             </div>
+            <p class="team-bio">Engineering leader at Meta. Head of APAC Engineering at Stripe. Former CTO of BIPO, where he led product and engineering across Asia. PhD from Caltech.</p>
           </li>
-          <li class="team-row">
-            <h3 class="team-name">Hieu Le</h3>
-            <div class="team-detail">
+          <li class="team-entry">
+            <img class="team-avatar" src="assets/team/hieu.jpg" alt="" width="800" height="800">
+            <div class="team-head">
+              <h3 class="team-name">Hieu Le</h3>
               <p class="team-role">COO &amp; President</p>
-              <p class="team-bio">Founder and CEO of BonbonCar in Vietnam; earlier founded Caterva in the US. Previously an engineer at Facebook. PhD in Computer Science from the University of Illinois Urbana-Champaign.</p>
             </div>
+            <p class="team-bio">Founder and CEO of BonbonCar in Vietnam; earlier founded Caterva in the US. Previously an engineer at Facebook. PhD in Computer Science from the University of Illinois Urbana-Champaign.</p>
           </li>
-          <li class="team-row">
-            <h3 class="team-name">Scott Chen</h3>
-            <div class="team-detail">
+          <li class="team-entry">
+            <img class="team-avatar" src="assets/team/scott.jpg" alt="" width="800" height="800">
+            <div class="team-head">
+              <h3 class="team-name">Scott Chen</h3>
               <p class="team-role">Chairman</p>
-              <p class="team-bio">Former Director of Engineering at Meta. As President of Grindr, he led the company through its $620M sale. PhD in Electrical Engineering from Caltech.</p>
             </div>
+            <p class="team-bio">Former Director of Engineering at Meta. As President of Grindr, he led the company through its $620M sale. PhD in Electrical Engineering from Caltech.</p>
           </li>
         </ul>
       </div>
