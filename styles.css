@@ -679,12 +679,17 @@ h4 {
 }
 .fact dd { font-size: 0.98rem; color: var(--night-text); }
 
-/* ---------- Team: ruled rows, names and titles only ---------- */
+/* ---------- Team: ruled rows of name, title and one short bio ---------- */
 
 /* No nodes or copper here: in the diagram grammar a node is a stage and copper
    is the production milestone, and a person is neither. The two columns reuse
    the section-head grid, so titles align with the ledes of other sections.
-   Titles are not uppercased: they render exactly as written. */
+   Titles are not uppercased: they render exactly as written.
+   The name sits alone in the left column. The right column holds the title and,
+   beneath it, the bio. Rows align on the baseline, and the right column's
+   baseline is its first line, so name and title share a baseline and the bio
+   hangs below the title. Source order is name, title, bio, which is also the
+   stacked reading order on small screens. */
 .team-list { border-top: 1px solid var(--ink); }
 .team-row {
   display: grid;
@@ -703,6 +708,15 @@ h4 {
 }
 .team-role {
   font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.008em;
+  color: var(--ink);
+}
+.team-bio {
+  margin-top: 6px;
+  max-width: 52ch;
+  font-size: 0.95rem;
+  line-height: 1.55;
   color: var(--ink-soft);
 }
 
@@ -887,8 +901,9 @@ h4 {
   .facts { gap: 14px; }
   .fact { flex-direction: column; }
 
-  /* Team: title stacks under the name. */
-  .team-row { grid-template-columns: minmax(0, 1fr); padding: 18px 0; }
+  /* Team: rows stack in source order: name, then title, then bio. */
+  .team-row { grid-template-columns: minmax(0, 1fr); padding: 20px 0; }
+  .team-bio { max-width: none; }
 
   /* Contact steps: 34px numbers, 46px gutter. */
   .contact-actions .button { width: 100%; }
