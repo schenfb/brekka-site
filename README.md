@@ -4,14 +4,14 @@ The company website for Brekka, an AI transformation company whose senior engine
 
 It is a single-page static site with no build step, no frameworks and no external dependencies. It is served by GitHub Pages straight from the repository root.
 
-- Current URL: <https://schenfb.github.io/brekka-site/>
-- Intended URL: <https://brekka.ai/> (not connected yet, see the launch checklist)
+- Live URL: <https://brekka.ai/> (custom domain connected, HTTPS enforced)
+- GitHub Pages address: <https://schenfb.github.io/brekka-site/> (returns a 301 redirect to `https://brekka.ai/`; it does not serve the site itself)
 
 ## Files
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | The whole page: hero, what we do, how we work, why Brekka, contact, footer |
+| `index.html` | The whole page: hero, what we do, how we work, why Brekka, team, contact, footer |
 | `styles.css` | All styling, including the responsive layout |
 | `script.js` | Mobile menu and the header hairline on scroll |
 | `favicon.svg` | The "B" mark, and the source for the icon files below |
@@ -39,7 +39,7 @@ The hero diagram, the method timeline and the social image share one visual gram
 | Dashed line | Exploratory leg, up to the pilot |
 | Solid line | Committed leg, from the pilot on |
 
-Copper is reserved for this path and milestone, the section markers, and link and button hover. It is not used as decoration. The same note sits at the top of `styles.css`, along with the type roles (serif display for H1/H2, sans semibold for titles, sans regular for prose, mono for labels).
+Copper is reserved for this path and milestone, the section markers, and link and button hover. It is not used as decoration. The same note sits at the top of `styles.css`, along with the type roles (serif display for H1/H2 and the names in Team, sans semibold for titles, sans regular for prose, mono for labels).
 
 The hero diagram exists twice in `index.html`: a detailed plate for wider screens and a simplified one with larger labels at 760px and below. CSS displays exactly one, so only one is exposed to assistive technology. Change both when the diagram changes.
 
@@ -57,17 +57,18 @@ In the repository settings, under **Pages**, set the source to the default branc
 
 ## Custom domain
 
-To connect `brekka.ai`:
+`brekka.ai` is connected and serving the site. The configuration has three parts, listed here for anyone who has to rebuild it:
 
-1. Add a file named `CNAME` to the repository root containing the single line `brekka.ai`.
-2. Point DNS at GitHub Pages: `A`/`AAAA` records on the apex domain to the GitHub Pages IP addresses listed in GitHub's documentation, or a `CNAME` record to `schenfb.github.io` for a subdomain such as `www`.
-3. In the Pages settings, confirm the custom domain and turn on **Enforce HTTPS** once the certificate has been issued.
-4. Work through the launch checklist below. Step one is not optional.
+1. **`CNAME` file.** GitHub Pages reads the custom domain from a file named `CNAME` in the repository root containing the single line `brekka.ai`. Deleting it disconnects the domain.
+2. **DNS.** The apex domain needs `A`/`AAAA` records pointing to the GitHub Pages IP addresses listed in GitHub's documentation, and `www` needs a `CNAME` record pointing to `schenfb.github.io`.
+3. **Pages settings.** The custom domain is confirmed in the repository's Pages settings and **Enforce HTTPS** is turned on. On a rebuild, that option only becomes available once GitHub has issued the certificate.
+
+Resulting behaviour, verified on 2026-11-23: `https://brekka.ai/` serves the site with a valid certificate, and `http://brekka.ai/`, `http://www.brekka.ai/`, `https://www.brekka.ai/` and `https://schenfb.github.io/brekka-site/` each return a 301 redirect to it.
 
 ## Launch checklist
 
-- [ ] **Canonical and Open Graph URLs.** `index.html` currently points `<link rel="canonical">`, `og:url`, `og:image` and `twitter:image` at `https://schenfb.github.io/brekka-site/`. When `brekka.ai` is serving this page, change all four to `https://brekka.ai/` (the image tags to `https://brekka.ai/og-image.png`). The spot is marked with a `LAUNCH:` comment in the `<head>`.
-- [ ] **DNS and HTTPS.** `https://brekka.ai/` loads the site with a valid certificate, and `http://` and `www.` redirect to it.
+- [x] **Canonical and Open Graph URLs.** Done. `index.html` points `<link rel="canonical">` and `og:url` at `https://brekka.ai/`, and `og:image` and `twitter:image` at `https://brekka.ai/og-image.png`.
+- [x] **DNS and HTTPS.** Done, verified on 2026-11-23. `https://brekka.ai/` loaded the site with a valid certificate, and `http://brekka.ai/`, `http://www.brekka.ai/` and `https://www.brekka.ai/` each redirected to it with a 301.
 - [ ] **Mailbox.** `hello@brekka.ai` exists and receives mail from an outside account. Every call to action on the page is a `mailto:` link to that address.
 - [ ] **Social preview image.** `og:image` and `twitter:image` point to `og-image.png`. Confirm it has been regenerated from the current `og-image.svg`, then check the rendered card with a link-preview debugger (LinkedIn Post Inspector or similar) after deployment.
 - [ ] **Icons.** The ICO, PNG and Apple touch icon fallbacks are linked in the `<head>`. Confirm the tab icon in a browser and the home-screen icon on iOS, and check the mark is legible at 16px.

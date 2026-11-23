@@ -20,7 +20,7 @@
      night  = the Why Brekka panel and the footer
 
    TYPE ROLES
-     display = serif, regular weight: H1 and H2 only
+     display = serif, regular weight: H1, H2 and the names in Team
      title   = sans, semibold, compact: card, step and list titles (H3/H4)
      prose   = sans, regular: paragraphs
      label   = mono, uppercase, 13px minimum: section markers, small labels */
@@ -679,6 +679,33 @@ h4 {
 }
 .fact dd { font-size: 0.98rem; color: var(--night-text); }
 
+/* ---------- Team: ruled rows, names and titles only ---------- */
+
+/* No nodes or copper here: in the diagram grammar a node is a stage and copper
+   is the production milestone, and a person is neither. The two columns reuse
+   the section-head grid, so titles align with the ledes of other sections.
+   Titles are not uppercased: they render exactly as written. */
+.team-list { border-top: 1px solid var(--ink); }
+.team-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 4px clamp(32px, 6vw, 88px);
+  align-items: baseline;
+  padding: clamp(20px, 2.6vw, 30px) 0;
+  border-bottom: 1px solid var(--rule-strong);
+}
+.team-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.team-role {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+
 /* ---------- Contact ---------- */
 
 .contact-inner {
@@ -859,6 +886,9 @@ h4 {
 
   .facts { gap: 14px; }
   .fact { flex-direction: column; }
+
+  /* Team: title stacks under the name. */
+  .team-row { grid-template-columns: minmax(0, 1fr); padding: 18px 0; }
 
   /* Contact steps: 34px numbers, 46px gutter. */
   .contact-actions .button { width: 100%; }
